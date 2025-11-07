@@ -1,365 +1,151 @@
-<!-- file: index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>All About Major Sports</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dustin JLG Wilburn - Resume</title>
   <style>
     body {
-      font-family: 'Arial Black', sans-serif;
-      background: linear-gradient(135deg, #001f3f, #0077cc);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
-      padding: 0;
-      text-align: center;
-      color: white;
-      overflow-x: hidden;
+      background-color: #f5f7fa;
+      color: #333;
+      line-height: 1.6;
     }
 
     header {
-      background: linear-gradient(90deg, #ff0000, #ffcc00, #00cc00, #004aad);
+      background-color: #2c3e50;
       color: white;
-      padding: 25px;
-      text-shadow: 2px 2px 4px black;
-      animation: fadeIn 1s ease-in;
+      padding: 20px 0;
+      text-align: center;
     }
 
-    nav {
-      background-color: rgba(0, 0, 0, 0.3);
-      display: flex;
-      justify-content: center;
-      gap: 20px;
+    header h1 {
+      margin: 0;
+      font-size: 2.2em;
+    }
+
+    header p {
+      margin: 5px 0;
+      font-size: 1em;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    section {
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      color: #2c3e50;
+      border-bottom: 2px solid #3498db;
+      padding-bottom: 5px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+    }
+
+    .contact-info {
+      font-size: 0.9em;
+      color: #eee;
+    }
+
+    footer {
+      text-align: center;
       padding: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
-
-    nav button {
-      background-color: #ffffff;
-      color: #004aad;
-      border: none;
-      padding: 12px 25px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 16px;
-      transition: all 0.3s ease;
-    }
-
-    nav button:hover {
-      background-color: #ffcc00;
-      color: #000;
-      transform: scale(1.1);
-      box-shadow: 0 0 15px #ffcc00;
-    }
-
-    #content {
-      margin-top: 30px;
-      padding: 20px;
-      animation: fadeIn 0.8s ease-in;
-    }
-
-    .card {
-      background-color: rgba(255, 255, 255, 0.95);
-      color: #000;
-      border-radius: 15px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
-      display: inline-block;
-      padding: 25px;
-      width: 70%;
-      text-align: left;
-      animation: slideUp 0.8s ease-out;
-    }
-
-    #backButton {
-      margin-top: 25px;
-      background-color: #ff0000;
+      background-color: #2c3e50;
       color: white;
-      border: none;
-      padding: 12px 25px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: bold;
-      font-size: 16px;
-      display: none;
-      transition: all 0.3s ease;
+      font-size: 0.9em;
     }
 
-    #backButton:hover {
-      background-color: #ffcc00;
-      color: #000;
-      transform: scale(1.1);
-      box-shadow: 0 0 15px #ffcc00;
+    a {
+      color: #3498db;
+      text-decoration: none;
     }
 
-    #images {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      margin: 50px 0;
-      animation: fadeIn 1s ease-in;
-    }
-
-    .sport-pic {
-      display: inline-block;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .sport-pic:hover {
-      transform: scale(1.2);
-      box-shadow: 0 0 20px white;
-    }
-
-    /* Baseball */
-    .mlb-pic {
-      width: 100px;
-      height: 100px;
-      background: radial-gradient(circle at 30% 30%, #fff, #ddd);
-      border-radius: 50%;
-      position: relative;
-      box-shadow: inset -5px -5px 10px rgba(0,0,0,0.2);
-    }
-    .mlb-pic::before, .mlb-pic::after {
-      content: "";
-      position: absolute;
-      width: 80px;
-      height: 80px;
-      border: 3px solid red;
-      border-radius: 50%;
-      top: 10px;
-    }
-    .mlb-pic::before {
-      left: -10px;
-      border-right: none;
-    }
-    .mlb-pic::after {
-      right: -10px;
-      border-left: none;
-    }
-
-    /* Basketball */
-    .nba-pic {
-      width: 100px;
-      height: 100px;
-      background: radial-gradient(circle at 30% 30%, #ff9933, #cc6600);
-      border-radius: 50%;
-      position: relative;
-      box-shadow: inset -5px -5px 10px rgba(0,0,0,0.3);
-    }
-    .nba-pic::before, .nba-pic::after {
-      content: "";
-      position: absolute;
-      background: black;
-    }
-    .nba-pic::before {
-      width: 100%;
-      height: 4px;
-      top: 48%;
-      left: 0;
-    }
-    .nba-pic::after {
-      width: 4px;
-      height: 100%;
-      left: 48%;
-      top: 0;
-    }
-    .nba-pic div {
-      position: absolute;
-      width: 100px;
-      height: 100px;
-      border: 3px solid black;
-      border-radius: 50%;
-      clip-path: circle(50%);
-    }
-
-    /* Soccer Ball */
-    .mls-pic {
-      width: 100px;
-      height: 100px;
-      background: radial-gradient(circle at 30% 30%, #fff, #ccc);
-      border-radius: 50%;
-      position: relative;
-      box-shadow: inset -5px -5px 10px rgba(0,0,0,0.3);
-    }
-    .mls-pic::before {
-      content: "";
-      position: absolute;
-      width: 40px;
-      height: 40px;
-      background: black;
-      clip-path: polygon(50% 0%, 95% 35%, 77% 90%, 23% 90%, 5% 35%);
-      top: 30px;
-      left: 30px;
-    }
-    .mls-pic::after {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,0.05) 10px, rgba(0,0,0,0.05) 20px);
-      border-radius: 50%;
-    }
-
-    /* Football */
-    .nfl-pic {
-      width: 120px;
-      height: 70px;
-      background: radial-gradient(ellipse at 30% 30%, #8b4513, #5a2d0c);
-      border-radius: 50% / 60%;
-      position: relative;
-      box-shadow: inset -5px -5px 10px rgba(0,0,0,0.3);
-    }
-    .nfl-pic::before {
-      content: "";
-      position: absolute;
-      top: 30px;
-      left: 20px;
-      width: 80px;
-      height: 10px;
-      background: white;
-      border-radius: 5px;
-    }
-    .nfl-pic::after {
-      content: "";
-      position: absolute;
-      top: 25px;
-      left: 55px;
-      width: 10px;
-      height: 20px;
-      background: white;
-      border-radius: 2px;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes slideUp {
-      from { transform: translateY(30px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <h1>🏆 All About Major Sports 🏆</h1>
+    <h1>Dustin JLG Wilburn</h1>
+    <p class="contact-info">
+      94-1042 Kaloli Loop, Waipahu, HI 96797<br>
+      Phone: <a href="tel:8084452825">808-445-2825</a> |
+      Email: <a href="mailto:dustinjlg10@gmail.com">dustinjlg10@gmail.com</a>
+    </p>
   </header>
 
-  <nav>
-    <button onclick="showSport('mlb')">MLB</button>
-    <button onclick="showSport('nba')">NBA</button>
-    <button onclick="showSport('mls')">MLS</button>
-    <button onclick="showSport('nfl')">NFL</button>
-  </nav>
+  <main>
+    <section>
+      <h2>Objective</h2>
+      <p>
+        A motivated high school student seeking a part-time position to develop professional skills and contribute to a positive team environment. 
+        Eager to apply strong problem-solving and teamwork skills and a commitment to excellence.
+      </p>
+    </section>
 
-  <div id="content">
-    <p>Click a sport above to learn about top players and fun facts!</p>
-    <div id="images">
-      <div class="sport-pic mlb-pic" title="MLB"></div>
-      <div class="sport-pic nba-pic" title="NBA"></div>
-      <div class="sport-pic mls-pic" title="MLS"></div>
-      <div class="sport-pic nfl-pic" title="NFL"></div>
-    </div>
-  </div>
+    <section>
+      <h2>Education</h2>
+      <p><strong>Hanalani Schools</strong> — Mililani, Hawaii</p>
+      <ul>
+        <li><strong>Expected Graduation:</strong> May 2028</li>
+        <li><strong>GPA:</strong> 4.4</li>
+        <li><strong>Relevant Courses:</strong> AI, Pre-Calculus & Trigonometry, AP U.S. History</li>
+      </ul>
+    </section>
 
-  <button id="backButton" onclick="goBack()">Back to Main Page</button>
+    <section>
+      <h2>Skills</h2>
+      <ul>
+        <li>Proficient in hands-on work</li>
+        <li>Strong written and verbal communication</li>
+        <li>Excellent time management and organization</li>
+        <li>Proficient in English</li>
+        <li>Experience with Canva and ChatGPT</li>
+      </ul>
+    </section>
 
-  <script>
-    const sportsData = {
-      mlb: {
-        name: "Major League Baseball (MLB)",
-        founded: "Founded in 1869",
-        teams: "30 teams (15 in the American League and 15 in the National League)",
-        championships: "The World Series is the championship, played every October.",
-        players: ["Shohei Ohtani", "Aaron Judge", "Mookie Betts", "Juan Soto", "Ronald Acuña Jr."],
-        facts: [
-          "The MLB season has 162 games per team.",
-          "The New York Yankees have won the most World Series titles.",
-          "Baseball was once played in the Olympics.",
-          "The fastest recorded pitch was over 105 mph!"
-        ]
-      },
-      nba: {
-        name: "National Basketball Association (NBA)",
-        founded: "Founded in 1946",
-        teams: "30 teams (29 in the U.S. and 1 in Canada)",
-        championships: "The NBA Finals decide the champion each June.",
-        players: ["LeBron James", "Stephen Curry", "Giannis Antetokounmpo", "Nikola Jokic", "Luka Doncic"],
-        facts: [
-          "A basketball hoop is 10 feet high.",
-          "The Boston Celtics and Los Angeles Lakers have the most championships.",
-          "Michael Jordan is often called the greatest player of all time.",
-          "The NBA All-Star Game is held every February."
-        ]
-      },
-      mls: {
-        name: "Major League Soccer (MLS)",
-        founded: "Founded in 1993, first season in 1996",
-        teams: "29 teams across the U.S. and Canada",
-        championships: "The MLS Cup is the championship match each year.",
-        players: ["Lionel Messi", "Carlos Vela", "Hany Mukhtar", "Lorenzo Insigne", "Cucho Hernández"],
-        facts: [
-          "A soccer match lasts 90 minutes, split into two halves.",
-          "The LA Galaxy and D.C. United have won multiple MLS Cups.",
-          "MLS has grown quickly with new teams joining often.",
-          "The league uses a playoff system to decide the champion."
-        ]
-      },
-      nfl: {
-        name: "National Football League (NFL)",
-        founded: "Founded in 1920",
-        teams: "32 teams split into two conferences: AFC and NFC",
-        championships: "The Super Bowl is the championship game, played in February.",
-        players: ["Patrick Mahomes", "Josh Allen", "Jalen Hurts", "Joe Burrow", "Lamar Jackson"],
-        facts: [
-          "A football field is 100 yards long.",
-          "The Green Bay Packers have won the most championships overall.",
-          "The Super Bowl is one of the most-watched events in the world.",
-          "Each team has 11 players on the field at a time."
-        ]
-      }
-    };
+    <section>
+      <h2>Extracurricular Activities</h2>
+      <ul>
+        <li><strong>Band Club</strong> — Member / Officer (1 year)</li>
+        <li><strong>Soccer</strong> — Left Wing (8 years)</li>
+      </ul>
+    </section>
 
-    function showSport(sport) {
-      const data = sportsData[sport];
-      const randomFact = data.facts[Math.floor(Math.random() * data.facts.length)];
-      const content = document.getElementById("content");
-      content.style.opacity = 0;
-      setTimeout(() => {
-        content.innerHTML = `
-          <div class="card">
-            <h2>${data.name}</h2>
-            <p><strong>${data.founded}</strong></p>
-            <p><strong>Number of Teams:</strong> ${data.teams}</p>
-            <p><strong>Championship:</strong> ${data.championships}</p>
-            <h3>Top Players:</h3>
-            <ul>${data.players.map(p => `<li>${p}</li>`).join('')}</ul>
-            <h3>Fun Facts:</h3>
-            <ul>${data.facts.map(f => `<li>${f}</li>`).join('')}</ul>
-            <p><strong>Random Fact:</strong> ${randomFact}</p>
-          </div>
-        `;
-        content.style.opacity = 1;
-      }, 300);
-      document.getElementById("backButton").style.display = "inline-block";
-    }
+    <section>
+      <h2>Awards and Honors</h2>
+      <ul>
+        <li>National Junior Honor Society — 1 Year</li>
+      </ul>
+    </section>
 
-    function goBack() {
-      const content = document.getElementById("content");
-      content.style.opacity = 0;
-      setTimeout(() => {
-        content.innerHTML = `
-          <p>Click a sport above to learn about top players and fun facts!</p>
-          <div id="images">
-            <div class="sport-pic mlb-pic" title="MLB"></div>
-            <div class="sport-pic nba-pic" title="NBA"></div>
-            <div class="sport-pic mls-pic" title="MLS"></div>
-            <div class="sport-pic nfl-pic" title="NFL"></div>
-          </div>
-        `;
-        content.style.opacity = 1;
-      }, 300);
-      document.getElementById("backButton").style.display = "none";
-    }
-  </script>
+    <section>
+      <h2>References</h2>
+      <p>Available upon request.</p>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 Dustin JLG Wilburn
+  </footer>
+
 </body>
 </html>
